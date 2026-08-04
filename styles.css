@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background: #000;
+    color: #fff;
+    scroll-behavior: smooth;
+}
+
+#galaxy-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+section, footer {
+    padding: 4rem 2rem;
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+
+#hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    padding: 1.5rem;
+    z-index: 10;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 0.3rem;
+}
+
+nav a:hover {
+    color: #a78bfa;
+}
+
+h1 {
+    font-size: 2.8rem;
+}
+
+.name {
+    color: #a78bfa;
+}
+
+#about {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#about p {
+    line-height: 1.6;
+    opacity: 0.85;
+}
+
+
+#projects ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+#projects li {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+}
+
+#projects a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+#skills ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+#skills li {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+}
+
+
+#contact {
+    text-align: center;
+}
+
+#contact ul {
+    list-style: none;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+#contact a {
+    color: #a78bfa;
+}
+
+
+footer {
+    text-align: center;
+    opacity: 0.6;
+    padding: 2rem;
+}
