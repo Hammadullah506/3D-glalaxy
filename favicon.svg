@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="30%" stop-color="#a78bfa" stop-opacity="0.9"/>
+      <stop offset="70%" stop-color="#6366f1" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="armGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="20" fill="#090910"/>
+  <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(167, 139, 250, 0.2)" stroke-width="1.5" stroke-dasharray="4 6"/>
+  <!-- Galaxy Spiral Arms -->
+  <path d="M50 50 C 65 35, 80 40, 85 60 C 88 75, 70 85, 55 82 C 35 78, 25 60, 28 40 C 32 15, 60 12, 80 25" 
+        fill="none" stroke="url(#armGrad1)" stroke-width="3" stroke-linecap="round" opacity="0.85"/>
+  <path d="M50 50 C 35 65, 20 60, 15 40 C 12 25, 30 15, 45 18 C 65 22, 75 40, 72 60 C 68 85, 40 88, 20 75" 
+        fill="none" stroke="url(#armGrad1)" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+  <!-- Core Glow -->
+  <circle cx="50" cy="50" r="22" fill="url(#coreGlow)"/>
+  <circle cx="50" cy="50" r="4" fill="#ffffff"/>
+  <!-- Orbiting sparkle stars -->
+  <circle cx="78" cy="30" r="2" fill="#38bdf8"/>
+  <circle cx="22" cy="70" r="1.5" fill="#c084fc"/>
+  <circle cx="70" cy="78" r="1.8" fill="#ffffff"/>
+  <circle cx="30" cy="22" r="1.2" fill="#38bdf8"/>
+</svg>
