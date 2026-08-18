@@ -1409,58 +1409,495 @@ footer {
 }
 
 /* ==========================================================================
-   RESPONSIVE MEDIA QUERIES
+   RESPONSIVE MEDIA QUERIES & MULTI-DEVICE OPTIMIZATION
    ========================================================================== */
 
-@media (max-width: 992px) {
-    .about-grid, .contact-grid {
+/* Large Tablets & Small Laptops (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .section {
+        padding: 5.5rem 0;
+    }
+
+    .about-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
+/* Tablets & Mobile Landscape (max-width: 768px) */
 @media (max-width: 768px) {
+    :root {
+        --radius-lg: 16px;
+        --radius-md: 12px;
+    }
+
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100vw;
+    }
+
+    .section {
+        padding: 4.5rem 0;
+    }
+
+    .section-header {
+        margin-bottom: 2.5rem;
+    }
+
+    .section-title {
+        font-size: clamp(1.85rem, 6vw, 2.5rem);
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem;
+    }
+
+    /* Navigation Bar */
+    #main-nav {
+        padding: 0.75rem 0;
+    }
+
+    .nav-container {
+        padding: 0 1rem;
+    }
+
     .nav-links {
         display: none;
         position: absolute;
-        top: 100%;
-        left: 1.5rem;
-        right: 1.5rem;
+        top: calc(100% + 0.5rem);
+        left: 1rem;
+        right: 1rem;
         flex-direction: column;
-        background: rgba(10, 13, 24, 0.95);
+        background: rgba(10, 13, 24, 0.96);
         border: 1px solid rgba(167, 139, 250, 0.3);
         border-radius: var(--radius-md);
-        padding: 1rem;
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+        padding: 0.75rem;
+        gap: 0.4rem;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9), 0 0 20px rgba(167, 139, 250, 0.15);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        z-index: 250;
+        animation: fadeInScale 0.2s ease-out forwards;
     }
 
     .nav-links.open {
         display: flex;
     }
 
-    .mobile-menu-btn {
-        display: block;
+    .nav-links li {
+        width: 100%;
     }
 
-    .warp-btn span {
+    .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 0.95rem;
+        text-align: center;
+        border-radius: var(--radius-sm);
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: var(--radius-sm);
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: #fff;
+        font-size: 1.25rem;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+    .mobile-menu-btn:hover {
+        background: rgba(167, 139, 250, 0.2);
+        border-color: var(--color-purple);
+    }
+
+    .warp-btn {
+        padding: 0.45rem 0.8rem;
+    }
+
+    .warp-btn span:last-child {
         display: none;
+    }
+
+    /* Hero Section */
+    #hero {
+        min-height: auto;
+        padding: 7rem 1rem 4rem;
+    }
+
+    .status-pill {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.85rem;
+        margin-bottom: 1.25rem;
+        white-space: normal;
+        text-align: center;
+        line-height: 1.4;
+    }
+
+    .hero-title {
+        font-size: clamp(2.1rem, 7.5vw, 3.2rem);
+        margin-bottom: 1rem;
+    }
+
+    .hero-dynamic-role {
+        font-size: clamp(0.95rem, 3.8vw, 1.3rem);
+        margin-bottom: 1rem;
+        min-height: 1.8rem;
+    }
+
+    .hero-desc {
+        font-size: 0.98rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-cta-group {
+        gap: 0.75rem;
+        margin-bottom: 2.5rem;
+        width: 100%;
+    }
+
+    .hero-badges {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .hero-badge-item {
+        font-size: 0.78rem;
+        padding: 0.35rem 0.75rem;
+    }
+
+    .scroll-indicator {
+        margin-top: 2.5rem;
+    }
+
+    /* About Section */
+    .about-card, .contact-info-card, .contact-form-card {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .about-bio h3 {
+        font-size: 1.4rem;
+    }
+
+    .about-bio p {
+        font-size: 0.95rem;
+    }
+
+    .about-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+        padding-top: 1.25rem;
+        margin-top: 1.25rem;
+    }
+
+    .stat-number {
+        font-size: clamp(1.4rem, 5vw, 1.9rem);
+    }
+
+    .stat-label {
+        font-size: 0.72rem;
+    }
+
+    .terminal-body {
+        padding: 1rem;
+        font-size: 0.8rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Projects Section */
+    .filter-bar {
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        flex-wrap: nowrap;
+        padding-bottom: 0.5rem;
+        scrollbar-width: none;
+        gap: 0.5rem;
+    }
+
+    .filter-bar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .filter-btn {
+        white-space: nowrap;
+        flex-shrink: 0;
+        padding: 0.45rem 1rem;
+        font-size: 0.8rem;
     }
 
     .projects-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .project-preview {
+        height: 170px;
+    }
+
+    .project-content {
+        padding: 1.25rem;
+    }
+
+    .project-title {
+        font-size: 1.2rem;
+    }
+
+    .project-desc {
+        font-size: 0.88rem;
+    }
+
+    .tag-chip {
+        font-size: 0.72rem;
+        padding: 0.2rem 0.55rem;
+    }
+
+    .project-actions {
+        padding-top: 1rem;
+    }
+
+    /* Skills Section */
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .skill-category {
+        padding: 1.35rem 1.2rem;
+    }
+
+    .skill-cat-title {
+        font-size: 1.15rem;
+    }
+
+    /* Contact Section */
+    .contact-channels {
+        margin: 1.5rem 0;
+        gap: 1rem;
+    }
+
+    .contact-channel-item {
+        padding: 0.85rem;
+        gap: 0.75rem;
+    }
+
+    .channel-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 1.05rem;
+    }
+
+    .channel-val {
+        font-size: 0.85rem;
+        word-break: break-all;
+    }
+
+    .form-group {
+        margin-bottom: 1.2rem;
+    }
+
+    .form-input, .form-textarea {
+        font-size: 16px; /* Prevents auto-zoom in iOS Safari */
+        padding: 0.8rem 1rem;
+    }
+
+    .form-submit-btn {
+        padding: 0.85rem;
+        font-size: 0.95rem;
+    }
+
+    /* Floating Galaxy HUD Controller on Mobile */
+    .galaxy-hud {
+        bottom: 1rem;
+        right: 1rem;
+        z-index: 120;
+    }
+
+    .hud-toggle-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .hud-panel {
+        position: fixed;
+        top: auto;
+        bottom: 4.5rem;
+        left: 1rem;
+        right: 1rem;
+        width: auto;
+        max-height: 75vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 1.2rem;
+        gap: 1rem;
+    }
+
+    .hud-presets {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.4rem;
+    }
+
+    .preset-btn {
+        padding: 0.5rem 0.4rem;
+        font-size: 0.72rem;
+    }
+
+    .hud-slider {
+        height: 7px;
+    }
+
+    .hud-slider::-webkit-slider-thumb {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Toast Notification on Mobile */
+    .toast-container {
+        bottom: 4.5rem;
+        width: calc(100% - 2rem);
+        padding: 0 1rem;
+    }
+
+    .toast {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+        justify-content: center;
+        font-size: 0.85rem;
+        padding: 0.65rem 1rem;
+    }
+
+    /* Footer */
+    footer {
+        padding: 2.5rem 0;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.25rem;
+    }
+
+    .footer-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}
+
+/* Compact Smartphones & Small Screens (max-width: 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .logo {
+        font-size: 1.05rem;
+        gap: 0.45rem;
+    }
+
+    .logo-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 0.95rem;
+    }
+
+    .nav-actions {
+        gap: 0.4rem;
+    }
+
+    .audio-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .warp-btn {
+        padding: 0.4rem 0.65rem;
+        font-size: 0.8rem;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 0.85rem 1.2rem;
+        font-size: 0.95rem;
+    }
+
+    .hero-title {
+        font-size: 2.15rem;
+    }
+
+    .about-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.4rem;
+    }
+
+    .stat-number {
+        font-size: 1.4rem;
+    }
+
+    .stat-label {
+        font-size: 0.68rem;
+    }
+
+    .project-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .project-btn {
+        width: 100%;
+        padding: 0.6rem;
+    }
+
+    .contact-channel-item {
+        flex-wrap: wrap;
+    }
+
+    .copy-pill {
+        margin-left: auto;
+    }
+}
+
+/* Foldables & Ultra-Narrow Devices (max-width: 360px) */
+@media (max-width: 360px) {
+    .logo span:last-child {
+        font-size: 0.95rem;
+    }
+
+    .hero-title {
+        font-size: 1.85rem;
+    }
+
+    .status-pill {
+        font-size: 0.68rem;
+        padding: 0.3rem 0.6rem;
     }
 
     .about-stats {
         grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .galaxy-hud {
-        bottom: 1.2rem;
-        right: 1.2rem;
-    }
-
-    .hud-panel {
-        width: calc(100vw - 2.4rem);
-        right: 0;
+        gap: 0.75rem;
     }
 }

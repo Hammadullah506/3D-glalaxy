@@ -730,7 +730,8 @@ const mobileToggle = document.getElementById('mobile-toggle');
 const navLinksContainer = document.getElementById('nav-links');
 
 if (mobileToggle && navLinksContainer) {
-    mobileToggle.addEventListener('click', () => {
+    mobileToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
         navLinksContainer.classList.toggle('open');
     });
 
@@ -738,6 +739,15 @@ if (mobileToggle && navLinksContainer) {
         link.addEventListener('click', () => {
             navLinksContainer.classList.remove('open');
         });
+    });
+
+    // Close mobile menu on outside tap
+    document.addEventListener('click', (e) => {
+        if (navLinksContainer.classList.contains('open')) {
+            if (!navLinksContainer.contains(e.target) && e.target !== mobileToggle) {
+                navLinksContainer.classList.remove('open');
+            }
+        }
     });
 }
 
